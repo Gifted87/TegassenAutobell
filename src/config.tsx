@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import type {PropsWithChildren} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import {
   SafeAreaView,
   ScrollView,
@@ -10,12 +12,16 @@ import {
   useColorScheme,
   View,
   TouchableOpacity,
+  Button,
+  //   Modal,
+  Pressable,
 } from 'react-native';
 import {horizontalScale, moderateScale, verticalScale} from '../Metrics.js';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {StackActions} from '@react-navigation/native';
+import {Modal} from 'react-native-ui-lib';
 
-const Config = () => {
+export default function Config({navigation, route}) {
   StatusBar.setBackgroundColor('#23232C');
   StatusBar.setBarStyle('light-content');
 
@@ -108,6 +114,196 @@ const Config = () => {
   const toggleSunAlarm4 = () => setSunAlarm4(previousState => !previousState);
   const toggleSunAlarm5 = () => setSunAlarm5(previousState => !previousState);
 
+  const [isDialogVisible, setDialogVisible] = useState(false);
+  const toggleDialogVisibility = () => setDialogVisible(!isDialogVisible);
+
+  const setAlarm = alarm => {
+    console.log(`${alarm}Set Alarm Button pressed!`);
+    //     snavigation.dispatch(StackActions.push('Config'));
+  };
+
+  const [MonAlarmData1, setMonAlarmData1] = useState({
+    time: '00:00AM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [MonAlarmData2, setMonAlarmData2] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [MonAlarmData3, setMonAlarmData3] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [MonAlarmData4, setMonAlarmData4] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [MonAlarmData5, setMonAlarmData5] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+
+  const [TueAlarmData1, setTueAlarmData1] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [TueAlarmData2, setTueAlarmData2] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [TueAlarmData3, setTueAlarmData3] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [TueAlarmData4, setTueAlarmData4] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [TueAlarmData5, setTueAlarmData5] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+
+  const [WedAlarmData1, setWedAlarmData1] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [WedAlarmData2, setWedAlarmData2] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [WedAlarmData3, setWedAlarmData3] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [WedAlarmData4, setWedAlarmData4] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [WedAlarmData5, setWedAlarmData5] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+
+  const [ThursAlarmData1, setThursAlarmData1] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [ThursAlarmData2, setThursAlarmData2] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [ThursAlarmData3, setThursAlarmData3] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [ThursAlarmData4, setThursAlarmData4] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [ThursAlarmData5, setThursAlarmData5] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+
+  const [FriAlarmData1, setFriAlarmData1] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [FriAlarmData2, setFriAlarmData2] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [FriAlarmData3, setFriAlarmData3] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [FriAlarmData4, setFriAlarmData4] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [FriAlarmData5, setFriAlarmData5] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+
+  const [SatAlarmData1, setSatAlarmData1] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [SatAlarmData2, setSatAlarmData2] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [SatAlarmData3, setSatAlarmData3] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [SatAlarmData4, setSatAlarmData4] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [SatAlarmData5, setSatAlarmData5] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+
+  const [SunAlarmData1, setSunAlarmData1] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [SunAlarmData2, setSunAlarmData2] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [SunAlarmData3, setSunAlarmData3] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [SunAlarmData4, setSunAlarmData4] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+  const [SunAlarmData5, setSunAlarmData5] = useState({
+    time: '00:00PM',
+    alarm: 'ANGELUS',
+    switch: false,
+  });
+
   return (
     <ScrollView>
       <View
@@ -152,7 +348,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {MonAlarmData1.time}
             </Text>
             <Text
               style={{
@@ -160,9 +356,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {MonAlarmData1.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(MonAlarm1)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={MonAlarm1 ? '#17181C' : '#8AC186'}
@@ -187,7 +385,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {MonAlarmData2.time}
             </Text>
             <Text
               style={{
@@ -195,9 +393,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {MonAlarmData2.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(MonAlarm2)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={MonAlarm2 ? '#17181C' : '#8AC186'}
@@ -222,7 +422,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {MonAlarmData3.time}
             </Text>
             <Text
               style={{
@@ -230,9 +430,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {MonAlarmData3.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(MonAlarm3)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={MonAlarm3 ? '#17181C' : '#8AC186'}
@@ -257,7 +459,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {MonAlarmData4.time}
             </Text>
             <Text
               style={{
@@ -265,9 +467,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {MonAlarmData4.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(MonAlarm4)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={MonAlarm4 ? '#17181C' : '#8AC186'}
@@ -292,7 +496,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {MonAlarmData5.time}
             </Text>
             <Text
               style={{
@@ -300,9 +504,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {MonAlarmData5.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(MonAlarm5)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={MonAlarm5 ? '#17181C' : '#8AC186'}
@@ -346,7 +552,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {TueAlarmData1.time}
             </Text>
             <Text
               style={{
@@ -354,9 +560,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {TueAlarmData1.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(TueAlarm1)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={TueAlarm1 ? '#17181C' : '#8AC186'}
@@ -381,7 +589,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {TueAlarmData2.time}
             </Text>
             <Text
               style={{
@@ -389,9 +597,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {TueAlarmData2.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(TueAlarm2)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={TueAlarm2 ? '#17181C' : '#8AC186'}
@@ -416,7 +626,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {TueAlarmData3.time}
             </Text>
             <Text
               style={{
@@ -424,9 +634,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {TueAlarmData3.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(TueAlarm3)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={TueAlarm3 ? '#17181C' : '#8AC186'}
@@ -451,7 +663,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {TueAlarmData4.time}
             </Text>
             <Text
               style={{
@@ -459,9 +671,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {TueAlarmData4.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(TueAlarm4)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={TueAlarm4 ? '#17181C' : '#8AC186'}
@@ -486,7 +700,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {TueAlarmData5.time}
             </Text>
             <Text
               style={{
@@ -494,9 +708,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {TueAlarmData5.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(TueAlarm5)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={TueAlarm5 ? '#17181C' : '#8AC186'}
@@ -540,7 +756,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {WedAlarmData1.time}
             </Text>
             <Text
               style={{
@@ -548,9 +764,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {WedAlarmData1.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(WedAlarm1)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={WedAlarm1 ? '#17181C' : '#8AC186'}
@@ -575,7 +793,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {WedAlarmData2.time}
             </Text>
             <Text
               style={{
@@ -583,9 +801,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {WedAlarmData2.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(WedAlarm2)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={WedAlarm2 ? '#17181C' : '#8AC186'}
@@ -610,7 +830,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {WedAlarmData3.time}
             </Text>
             <Text
               style={{
@@ -618,9 +838,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {WedAlarmData3.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(WedAlarm3)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={WedAlarm3 ? '#17181C' : '#8AC186'}
@@ -645,7 +867,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {WedAlarmData4.time}
             </Text>
             <Text
               style={{
@@ -653,9 +875,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {WedAlarmData4.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(WedAlarm4)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={WedAlarm4 ? '#17181C' : '#8AC186'}
@@ -680,7 +904,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {WedAlarmData5.time}
             </Text>
             <Text
               style={{
@@ -688,9 +912,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {WedAlarmData5.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(WedAlarm5)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={WedAlarm5 ? '#17181C' : '#8AC186'}
@@ -734,7 +960,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {ThursAlarmData1.time}
             </Text>
             <Text
               style={{
@@ -742,9 +968,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {ThursAlarmData1.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(ThursAlarm1)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={ThursAlarm1 ? '#17181C' : '#8AC186'}
@@ -769,7 +997,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {ThursAlarmData2.time}
             </Text>
             <Text
               style={{
@@ -777,9 +1005,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {ThursAlarmData2.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(ThursAlarm2)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={ThursAlarm2 ? '#17181C' : '#8AC186'}
@@ -804,7 +1034,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {ThursAlarmData3.time}
             </Text>
             <Text
               style={{
@@ -812,9 +1042,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {ThursAlarmData3.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(ThursAlarm3)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={ThursAlarm3 ? '#17181C' : '#8AC186'}
@@ -839,7 +1071,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {ThursAlarmData4.time}
             </Text>
             <Text
               style={{
@@ -847,9 +1079,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {ThursAlarmData4.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(ThursAlarm4)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={ThursAlarm4 ? '#17181C' : '#8AC186'}
@@ -874,7 +1108,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {ThursAlarmData5.time}
             </Text>
             <Text
               style={{
@@ -882,9 +1116,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {ThursAlarmData5.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(ThursAlarm5)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={ThursAlarm5 ? '#17181C' : '#8AC186'}
@@ -928,7 +1164,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {FriAlarmData1.time}
             </Text>
             <Text
               style={{
@@ -936,9 +1172,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {FriAlarmData1.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(FriAlarm1)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={FriAlarm1 ? '#17181C' : '#8AC186'}
@@ -963,7 +1201,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {FriAlarmData2.time}
             </Text>
             <Text
               style={{
@@ -971,9 +1209,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {FriAlarmData2.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(FriAlarm2)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={FriAlarm2 ? '#17181C' : '#8AC186'}
@@ -998,7 +1238,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {FriAlarmData3.time}
             </Text>
             <Text
               style={{
@@ -1006,9 +1246,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {FriAlarmData3.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(FriAlarm3)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={FriAlarm3 ? '#17181C' : '#8AC186'}
@@ -1033,7 +1275,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {FriAlarmData4.time}
             </Text>
             <Text
               style={{
@@ -1041,9 +1283,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {FriAlarmData4.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(FriAlarm4)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={FriAlarm4 ? '#17181C' : '#8AC186'}
@@ -1068,7 +1312,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {FriAlarmData5.time}
             </Text>
             <Text
               style={{
@@ -1076,9 +1320,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {FriAlarmData5.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(FriAlarm5)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={FriAlarm5 ? '#17181C' : '#8AC186'}
@@ -1122,7 +1368,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {SatAlarmData1.time}
             </Text>
             <Text
               style={{
@@ -1130,9 +1376,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {SatAlarmData1.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(SatAlarm1)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={SatAlarm1 ? '#17181C' : '#8AC186'}
@@ -1157,7 +1405,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {SatAlarmData2.time}
             </Text>
             <Text
               style={{
@@ -1165,9 +1413,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {SatAlarmData2.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(SatAlarm2)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={SatAlarm2 ? '#17181C' : '#8AC186'}
@@ -1192,7 +1442,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {SatAlarmData3.time}
             </Text>
             <Text
               style={{
@@ -1200,9 +1450,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {SatAlarmData3.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(SatAlarm3)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={SatAlarm3 ? '#17181C' : '#8AC186'}
@@ -1227,7 +1479,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {SatAlarmData4.time}
             </Text>
             <Text
               style={{
@@ -1235,9 +1487,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {SatAlarmData4.time}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(SatAlarm4)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={SatAlarm4 ? '#17181C' : '#8AC186'}
@@ -1262,7 +1516,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {SatAlarmData5.time}
             </Text>
             <Text
               style={{
@@ -1270,9 +1524,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {SatAlarmData5.time}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(SatAlarm5)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={SatAlarm5 ? '#17181C' : '#8AC186'}
@@ -1316,7 +1572,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {SunAlarmData1.time}
             </Text>
             <Text
               style={{
@@ -1324,9 +1580,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {SunAlarmData1.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(SunAlarm1)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={SunAlarm1 ? '#17181C' : '#8AC186'}
@@ -1351,7 +1609,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {SunAlarmData2.time}
             </Text>
             <Text
               style={{
@@ -1359,9 +1617,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {SunAlarmData2.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(SunAlarm2)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={SunAlarm2 ? '#17181C' : '#8AC186'}
@@ -1386,7 +1646,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {SunAlarmData3.time}
             </Text>
             <Text
               style={{
@@ -1394,9 +1654,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {SunAlarmData3.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(SunAlarm3)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={SunAlarm3 ? '#17181C' : '#8AC186'}
@@ -1421,7 +1683,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {SunAlarmData4.time}
             </Text>
             <Text
               style={{
@@ -1429,9 +1691,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {SunAlarmData4.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(SunAlarm4)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={SunAlarm4 ? '#17181C' : '#8AC186'}
@@ -1456,7 +1720,7 @@ const Config = () => {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              00:00AM
+              {SunAlarmData5.time}
             </Text>
             <Text
               style={{
@@ -1464,9 +1728,11 @@ const Config = () => {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              ANGELUS
+              {SunAlarmData5.alarm}
             </Text>
-            <Icon name="wrench-clock" color={'#17181C'} size={25}></Icon>
+            <TouchableOpacity onPress={() => setAlarm(SunAlarm5)}>
+              <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
+            </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
               thumbColor={SunAlarm5 ? '#17181C' : '#8AC186'}
@@ -1479,6 +1745,63 @@ const Config = () => {
       </View>
     </ScrollView>
   );
-};
+}
 
-export default Config;
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flex: 1,
+    justifyContent: 'center',
+    alignContent: 'center',
+    backgroundColor: '#fff',
+  },
+  modalContainer: {
+    backgroundColor: '#ccc',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    position: 'absolute',
+  },
+  modalView: {
+    flex: 1,
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
+  alert: {
+    width: '100%',
+    maxWidth: 300,
+    margin: 48,
+    elevation: 24,
+    borderRadius: 2,
+    backgroundColor: '#fff',
+  },
+  alertTitle: {
+    margin: 24,
+    fontWeight: 'bold',
+    fontSize: 24,
+    color: '#000',
+  },
+  alertMessage: {
+    marginLeft: 24,
+    marginRight: 24,
+    marginBottom: 24,
+    fontSize: 16,
+    color: '#000',
+  },
+  alertButtonGroup: {
+    marginTop: 0,
+    marginRight: 0,
+    marginBottom: 8,
+    marginLeft: 24,
+    padding: 10,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
+  alertButton: {
+    marginTop: 12,
+    marginRight: 8,
+    width: 100,
+  },
+});
