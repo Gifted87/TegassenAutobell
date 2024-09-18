@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Text,
   useColorScheme,
+  ActivityIndicator,
   View,
   TouchableOpacity,
 } from 'react-native';
@@ -17,6 +18,7 @@ import {StackActions} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Config from './config.tsx';
 import HomePage from './home.tsx';
+import SetAlarm from './setAlarm.tsx';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -35,6 +37,13 @@ const App = () => {
         <Stack.Screen
           name="Config"
           component={Config}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="SetAlarm"
+          component={SetAlarm}
           options={{
             headerShown: false,
           }}

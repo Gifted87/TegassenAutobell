@@ -119,7 +119,7 @@ export default function Config({navigation, route}) {
 
   const setAlarm = alarm => {
     console.log(`${alarm}Set Alarm Button pressed!`);
-    //     snavigation.dispatch(StackActions.push('Config'));
+    navigation.dispatch(StackActions.push('SetAlarm'));
   };
 
   const [MonAlarmData1, setMonAlarmData1] = useState({

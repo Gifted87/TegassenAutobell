@@ -1715,6 +1715,11 @@
   resolved "https://registry.npmjs.org/@react-native-community/netinfo/-/netinfo-11.4.0.tgz"
   integrity sha512-EGJByXkYebOfbflwcgdUO6hgUmVsE6RnRPHJ2Pp6M1mZX3YQkfotS7i1/TwTk4LpioyOePvEQwmy8PfW942Upg==
 
+"@react-native-picker/picker@^2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@react-native-picker/picker/-/picker-2.8.0.tgz"
+  integrity sha512-nNU3T3DUi0NDmOEv34aGvV3tDybfIo4Di+1AaNceiImhRFD/dvBWIEgkVfOKUsC/biqv1Yo7td+2BrDL0gyZcw==
+
 "@react-native/assets-registry@0.74.86":
   version "0.74.86"
   resolved "https://registry.npmjs.org/@react-native/assets-registry/-/assets-registry-0.74.86.tgz"
