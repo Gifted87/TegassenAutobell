@@ -61,22 +61,17 @@ export default function Config({navigation, route}) {
   const toggleWedAlarm4 = () => setWedAlarm4(previousState => !previousState);
   const toggleWedAlarm5 = () => setWedAlarm5(previousState => !previousState);
 
-  const [ThursAlarm1, setThursAlarm1] = useState(false);
-  const [ThursAlarm2, setThursAlarm2] = useState(false);
-  const [ThursAlarm3, setThursAlarm3] = useState(false);
-  const [ThursAlarm4, setThursAlarm4] = useState(false);
-  const [ThursAlarm5, setThursAlarm5] = useState(false);
+  const [thuAlarm1, setthuAlarm1] = useState(false);
+  const [thuAlarm2, setthuAlarm2] = useState(false);
+  const [thuAlarm3, setthuAlarm3] = useState(false);
+  const [thuAlarm4, setthuAlarm4] = useState(false);
+  const [thuAlarm5, setthuAlarm5] = useState(false);
 
-  const toggleThursAlarm1 = () =>
-    setThursAlarm1(previousState => !previousState);
-  const toggleThursAlarm2 = () =>
-    setThursAlarm2(previousState => !previousState);
-  const toggleThursAlarm3 = () =>
-    setThursAlarm3(previousState => !previousState);
-  const toggleThursAlarm4 = () =>
-    setThursAlarm4(previousState => !previousState);
-  const toggleThursAlarm5 = () =>
-    setThursAlarm5(previousState => !previousState);
+  const togglethuAlarm1 = () => setthuAlarm1(previousState => !previousState);
+  const togglethuAlarm2 = () => setthuAlarm2(previousState => !previousState);
+  const togglethuAlarm3 = () => setthuAlarm3(previousState => !previousState);
+  const togglethuAlarm4 = () => setthuAlarm4(previousState => !previousState);
+  const togglethuAlarm5 = () => setthuAlarm5(previousState => !previousState);
 
   const [FriAlarm1, setFriAlarm1] = useState(false);
   const [FriAlarm2, setFriAlarm2] = useState(false);
@@ -119,7 +114,7 @@ export default function Config({navigation, route}) {
 
   const setAlarm = alarm => {
     console.log(`${alarm}Set Alarm Button pressed!`);
-    navigation.dispatch(StackActions.push('SetAlarm'));
+    navigation.dispatch(StackActions.push('SetAlarm', {alarm: alarm}));
   };
 
   const [MonAlarmData1, setMonAlarmData1] = useState({
@@ -200,27 +195,27 @@ export default function Config({navigation, route}) {
     switch: false,
   });
 
-  const [ThursAlarmData1, setThursAlarmData1] = useState({
+  const [thuAlarmData1, setthuAlarmData1] = useState({
     time: '00:00PM',
     alarm: 'ANGELUS',
     switch: false,
   });
-  const [ThursAlarmData2, setThursAlarmData2] = useState({
+  const [thuAlarmData2, setthuAlarmData2] = useState({
     time: '00:00PM',
     alarm: 'ANGELUS',
     switch: false,
   });
-  const [ThursAlarmData3, setThursAlarmData3] = useState({
+  const [thuAlarmData3, setthuAlarmData3] = useState({
     time: '00:00PM',
     alarm: 'ANGELUS',
     switch: false,
   });
-  const [ThursAlarmData4, setThursAlarmData4] = useState({
+  const [thuAlarmData4, setthuAlarmData4] = useState({
     time: '00:00PM',
     alarm: 'ANGELUS',
     switch: false,
   });
-  const [ThursAlarmData5, setThursAlarmData5] = useState({
+  const [thuAlarmData5, setthuAlarmData5] = useState({
     time: '00:00PM',
     alarm: 'ANGELUS',
     switch: false,
@@ -358,7 +353,7 @@ export default function Config({navigation, route}) {
               }}>
               {MonAlarmData1.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(MonAlarm1)}>
+            <TouchableOpacity onPress={() => setAlarm('MonAlarm1')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -395,7 +390,7 @@ export default function Config({navigation, route}) {
               }}>
               {MonAlarmData2.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(MonAlarm2)}>
+            <TouchableOpacity onPress={() => setAlarm('MonAlarm2')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -432,7 +427,7 @@ export default function Config({navigation, route}) {
               }}>
               {MonAlarmData3.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(MonAlarm3)}>
+            <TouchableOpacity onPress={() => setAlarm('MonAlarm3')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -469,7 +464,7 @@ export default function Config({navigation, route}) {
               }}>
               {MonAlarmData4.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(MonAlarm4)}>
+            <TouchableOpacity onPress={() => setAlarm('MonAlarm4')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -506,7 +501,7 @@ export default function Config({navigation, route}) {
               }}>
               {MonAlarmData5.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(MonAlarm5)}>
+            <TouchableOpacity onPress={() => setAlarm('MonAlarm5')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -562,7 +557,7 @@ export default function Config({navigation, route}) {
               }}>
               {TueAlarmData1.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(TueAlarm1)}>
+            <TouchableOpacity onPress={() => setAlarm('TueAlarm1')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -599,7 +594,7 @@ export default function Config({navigation, route}) {
               }}>
               {TueAlarmData2.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(TueAlarm2)}>
+            <TouchableOpacity onPress={() => setAlarm('TueAlarm2')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -636,7 +631,7 @@ export default function Config({navigation, route}) {
               }}>
               {TueAlarmData3.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(TueAlarm3)}>
+            <TouchableOpacity onPress={() => setAlarm('TueAlarm3')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -673,7 +668,7 @@ export default function Config({navigation, route}) {
               }}>
               {TueAlarmData4.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(TueAlarm4)}>
+            <TouchableOpacity onPress={() => setAlarm('TueAlarm4')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -710,7 +705,7 @@ export default function Config({navigation, route}) {
               }}>
               {TueAlarmData5.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(TueAlarm5)}>
+            <TouchableOpacity onPress={() => setAlarm('TueAlarm5')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -766,7 +761,7 @@ export default function Config({navigation, route}) {
               }}>
               {WedAlarmData1.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(WedAlarm1)}>
+            <TouchableOpacity onPress={() => setAlarm('WedAlarm1')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -803,7 +798,7 @@ export default function Config({navigation, route}) {
               }}>
               {WedAlarmData2.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(WedAlarm2)}>
+            <TouchableOpacity onPress={() => setAlarm('WedAlarm2')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -840,7 +835,7 @@ export default function Config({navigation, route}) {
               }}>
               {WedAlarmData3.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(WedAlarm3)}>
+            <TouchableOpacity onPress={() => setAlarm('WedAlarm3')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -877,7 +872,7 @@ export default function Config({navigation, route}) {
               }}>
               {WedAlarmData4.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(WedAlarm4)}>
+            <TouchableOpacity onPress={() => setAlarm('WedAlarm4')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -914,7 +909,7 @@ export default function Config({navigation, route}) {
               }}>
               {WedAlarmData5.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(WedAlarm5)}>
+            <TouchableOpacity onPress={() => setAlarm('WedAlarm5')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -942,7 +937,7 @@ export default function Config({navigation, route}) {
               color: '#17181C',
               paddingBottom: verticalScale(15),
             }}>
-            THURSDAY
+            thuDAY
           </Text>
           <View
             style={{
@@ -960,7 +955,7 @@ export default function Config({navigation, route}) {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              {ThursAlarmData1.time}
+              {thuAlarmData1.time}
             </Text>
             <Text
               style={{
@@ -968,17 +963,17 @@ export default function Config({navigation, route}) {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              {ThursAlarmData1.alarm}
+              {thuAlarmData1.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(ThursAlarm1)}>
+            <TouchableOpacity onPress={() => setAlarm('thuAlarm1')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
-              thumbColor={ThursAlarm1 ? '#17181C' : '#8AC186'}
+              thumbColor={thuAlarm1 ? '#17181C' : '#8AC186'}
               ios_backgroundColor="#17181C"
-              onValueChange={toggleThursAlarm1}
-              value={ThursAlarm1}
+              onValueChange={togglethuAlarm1}
+              value={thuAlarm1}
             />
           </View>
           <View
@@ -997,7 +992,7 @@ export default function Config({navigation, route}) {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              {ThursAlarmData2.time}
+              {thuAlarmData2.time}
             </Text>
             <Text
               style={{
@@ -1005,17 +1000,17 @@ export default function Config({navigation, route}) {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              {ThursAlarmData2.alarm}
+              {thuAlarmData2.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(ThursAlarm2)}>
+            <TouchableOpacity onPress={() => setAlarm('thuAlarm2')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
-              thumbColor={ThursAlarm2 ? '#17181C' : '#8AC186'}
+              thumbColor={thuAlarm2 ? '#17181C' : '#8AC186'}
               ios_backgroundColor="#17181C"
-              onValueChange={toggleThursAlarm2}
-              value={ThursAlarm2}
+              onValueChange={togglethuAlarm2}
+              value={thuAlarm2}
             />
           </View>
           <View
@@ -1034,7 +1029,7 @@ export default function Config({navigation, route}) {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              {ThursAlarmData3.time}
+              {thuAlarmData3.time}
             </Text>
             <Text
               style={{
@@ -1042,17 +1037,17 @@ export default function Config({navigation, route}) {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              {ThursAlarmData3.alarm}
+              {thuAlarmData3.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(ThursAlarm3)}>
+            <TouchableOpacity onPress={() => setAlarm('thuAlarm3')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
-              thumbColor={ThursAlarm3 ? '#17181C' : '#8AC186'}
+              thumbColor={thuAlarm3 ? '#17181C' : '#8AC186'}
               ios_backgroundColor="#17181C"
-              onValueChange={toggleThursAlarm3}
-              value={ThursAlarm3}
+              onValueChange={togglethuAlarm3}
+              value={thuAlarm3}
             />
           </View>
           <View
@@ -1071,7 +1066,7 @@ export default function Config({navigation, route}) {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              {ThursAlarmData4.time}
+              {thuAlarmData4.time}
             </Text>
             <Text
               style={{
@@ -1079,17 +1074,17 @@ export default function Config({navigation, route}) {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              {ThursAlarmData4.alarm}
+              {thuAlarmData4.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(ThursAlarm4)}>
+            <TouchableOpacity onPress={() => setAlarm('thuAlarm4')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
-              thumbColor={ThursAlarm4 ? '#17181C' : '#8AC186'}
+              thumbColor={thuAlarm4 ? '#17181C' : '#8AC186'}
               ios_backgroundColor="#17181C"
-              onValueChange={toggleThursAlarm4}
-              value={ThursAlarm4}
+              onValueChange={togglethuAlarm4}
+              value={thuAlarm4}
             />
           </View>
           <View
@@ -1108,7 +1103,7 @@ export default function Config({navigation, route}) {
                 fontSize: moderateScale(25),
                 color: '#17181C',
               }}>
-              {ThursAlarmData5.time}
+              {thuAlarmData5.time}
             </Text>
             <Text
               style={{
@@ -1116,17 +1111,17 @@ export default function Config({navigation, route}) {
                 fontSize: moderateScale(15),
                 color: '#17181C',
               }}>
-              {ThursAlarmData5.alarm}
+              {thuAlarmData5.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(ThursAlarm5)}>
+            <TouchableOpacity onPress={() => setAlarm('thuAlarm5')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
               trackColor={{false: '#17181C', true: '#8AC186'}}
-              thumbColor={ThursAlarm5 ? '#17181C' : '#8AC186'}
+              thumbColor={thuAlarm5 ? '#17181C' : '#8AC186'}
               ios_backgroundColor="#17181C"
-              onValueChange={toggleThursAlarm5}
-              value={ThursAlarm5}
+              onValueChange={togglethuAlarm5}
+              value={thuAlarm5}
             />
           </View>
         </View>
@@ -1174,7 +1169,7 @@ export default function Config({navigation, route}) {
               }}>
               {FriAlarmData1.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(FriAlarm1)}>
+            <TouchableOpacity onPress={() => setAlarm('FriAlarm1')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -1211,7 +1206,7 @@ export default function Config({navigation, route}) {
               }}>
               {FriAlarmData2.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(FriAlarm2)}>
+            <TouchableOpacity onPress={() => setAlarm('FriAlarm2')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -1248,7 +1243,7 @@ export default function Config({navigation, route}) {
               }}>
               {FriAlarmData3.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(FriAlarm3)}>
+            <TouchableOpacity onPress={() => setAlarm('FriAlarm3')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -1285,7 +1280,7 @@ export default function Config({navigation, route}) {
               }}>
               {FriAlarmData4.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(FriAlarm4)}>
+            <TouchableOpacity onPress={() => setAlarm('FriAlarm4')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -1322,7 +1317,7 @@ export default function Config({navigation, route}) {
               }}>
               {FriAlarmData5.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(FriAlarm5)}>
+            <TouchableOpacity onPress={() => setAlarm('FriAlarm5')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -1378,7 +1373,7 @@ export default function Config({navigation, route}) {
               }}>
               {SatAlarmData1.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(SatAlarm1)}>
+            <TouchableOpacity onPress={() => setAlarm('SatAlarm1')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -1415,7 +1410,7 @@ export default function Config({navigation, route}) {
               }}>
               {SatAlarmData2.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(SatAlarm2)}>
+            <TouchableOpacity onPress={() => setAlarm('SatAlarm2')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -1452,7 +1447,7 @@ export default function Config({navigation, route}) {
               }}>
               {SatAlarmData3.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(SatAlarm3)}>
+            <TouchableOpacity onPress={() => setAlarm('SatAlarm3')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -1489,7 +1484,7 @@ export default function Config({navigation, route}) {
               }}>
               {SatAlarmData4.time}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(SatAlarm4)}>
+            <TouchableOpacity onPress={() => setAlarm('SatAlarm4')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -1526,7 +1521,7 @@ export default function Config({navigation, route}) {
               }}>
               {SatAlarmData5.time}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(SatAlarm5)}>
+            <TouchableOpacity onPress={() => setAlarm('SatAlarm5')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -1582,7 +1577,7 @@ export default function Config({navigation, route}) {
               }}>
               {SunAlarmData1.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(SunAlarm1)}>
+            <TouchableOpacity onPress={() => setAlarm('SunAlarm1')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -1619,7 +1614,7 @@ export default function Config({navigation, route}) {
               }}>
               {SunAlarmData2.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(SunAlarm2)}>
+            <TouchableOpacity onPress={() => setAlarm('SunAlarm2')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -1656,7 +1651,7 @@ export default function Config({navigation, route}) {
               }}>
               {SunAlarmData3.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(SunAlarm3)}>
+            <TouchableOpacity onPress={() => setAlarm('SunAlarm3')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -1693,7 +1688,7 @@ export default function Config({navigation, route}) {
               }}>
               {SunAlarmData4.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(SunAlarm4)}>
+            <TouchableOpacity onPress={() => setAlarm('SunAlarm4')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
@@ -1730,7 +1725,7 @@ export default function Config({navigation, route}) {
               }}>
               {SunAlarmData5.alarm}
             </Text>
-            <TouchableOpacity onPress={() => setAlarm(SunAlarm5)}>
+            <TouchableOpacity onPress={() => setAlarm('SunAlarm5')}>
               <Icon name="clock-edit" color={'#17181C'} size={25}></Icon>
             </TouchableOpacity>
             <Switch
