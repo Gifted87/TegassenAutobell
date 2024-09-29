@@ -12,6 +12,7 @@ import RNDateTimePicker from '@react-native-community/datetimepicker';
 import {StackActions} from '@react-navigation/native';
 import {Picker} from '@react-native-picker/picker';
 import {Button, Colors} from 'react-native-ui-lib';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function SetAlarm({navigation, route}) {
   StatusBar.setBackgroundColor('#23232C');
@@ -63,9 +64,742 @@ export default function SetAlarm({navigation, route}) {
     )
       .then(() => {
         setIsLoading(false);
+        updateState(
+          day,
+          alarm,
+          time.toLocaleTimeString().substring(0, 5),
+          tone.toUpperCase(),
+          true,
+        );
         navigation.dispatch(StackActions.push('Config'));
       })
       .catch(error => console.error('Error:', error));
+  };
+
+  const updateState = (day, alarm, time, tone, switchState) => {
+    if (day == 'mon') {
+      if (alarm == '1') {
+        const MonAlarmData1 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            MonAlarmData1,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+
+      if (alarm == '2') {
+        const MonAlarmData2 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            MonAlarmData2,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '3') {
+        const MonAlarmData3 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            MonAlarmData3,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '4') {
+        const MonAlarmData4 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            MonAlarmData4,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '5') {
+        const MonAlarmData5 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            MonAlarmData5,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+    }
+    if (day == 'tue') {
+      if (alarm == '1') {
+        const TueAlarmData1 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            TueAlarmData1,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+
+      if (alarm == '2') {
+        const TueAlarmData2 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            TueAlarmData2,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '3') {
+        const TueAlarmData3 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            TueAlarmData3,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '4') {
+        const TueAlarmData4 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            TueAlarmData4,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '5') {
+        const TueAlarmData5 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            TueAlarmData5,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+    }
+    if (day == 'wed') {
+      if (alarm == '1') {
+        const WedAlarmData1 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            WedAlarmData1,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+
+      if (alarm == '2') {
+        const WedAlarmData2 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            WedAlarmData2,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '3') {
+        const WedAlarmData3 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            WedAlarmData3,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '4') {
+        const WedAlarmData4 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            WedAlarmData4,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '5') {
+        const WedAlarmData5 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            WedAlarmData5,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+    }
+    if (day == 'thu') {
+      if (alarm == '1') {
+        const thuAlarmData1 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            thuAlarmData1,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+
+      if (alarm == '2') {
+        const thuAlarmData2 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            thuAlarmData2,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '3') {
+        const thuAlarmData3 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            thuAlarmData3,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '4') {
+        const thuAlarmData4 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            thuAlarmData4,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '5') {
+        const thuAlarmData5 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            thuAlarmData5,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+    }
+    if (day == 'fri') {
+      if (alarm == '1') {
+        const FriAlarmData1 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            FriAlarmData1,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+
+      if (alarm == '2') {
+        const FriAlarmData2 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            FriAlarmData2,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '3') {
+        const FriAlarmData3 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            FriAlarmData3,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '4') {
+        const FriAlarmData4 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            FriAlarmData4,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '5') {
+        const FriAlarmData5 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            FriAlarmData5,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+    }
+    if (day == 'sat') {
+      if (alarm == '1') {
+        const SatAlarmData1 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            SatAlarmData1,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+
+      if (alarm == '2') {
+        const SatAlarmData2 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            SatAlarmData2,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '3') {
+        const SatAlarmData3 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            SatAlarmData3,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '4') {
+        const SatAlarmData4 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            SatAlarmData4,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '5') {
+        const SatAlarmData5 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            SatAlarmData5,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+    }
+    if (day == 'sun') {
+      if (alarm == '1') {
+        const SunAlarmData1 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            SunAlarmData1,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+
+      if (alarm == '2') {
+        const SunAlarmData2 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            SunAlarmData2,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '3') {
+        const SunAlarmData3 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            SunAlarmData3,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '4') {
+        const SunAlarmData4 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            SunAlarmData4,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+      if (alarm == '5') {
+        const SunAlarmData5 = {
+          time: time,
+          alarm: tone,
+          switch: switchState,
+        };
+
+        try {
+          const alarmData = {
+            SunAlarmData5,
+          };
+
+          for (const key in alarmData) {
+            AsyncStorage.setItem(key, JSON.stringify(alarmData[key]));
+          }
+          console.log('Alarm data stored successfully!');
+        } catch (error) {
+          console.error('Failed to store alarm data:', error);
+        }
+      }
+    }
+
+    // Save the updated state to AsyncStorage
   };
 
   const tonePicker = tone => {
@@ -179,12 +913,16 @@ export default function SetAlarm({navigation, route}) {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <View style={styles.container}>
-          <View
-            style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <ActivityIndicator size="large" color="#333333" />
-          </View>
-        </View>
+        <ActivityIndicator size="large" color="#00ff00" />
+        <Text
+          style={{
+            fontFamily: 'OpenSans-Bold',
+            fontSize: moderateScale(16),
+            color: '#00ff00',
+            marginTop: verticalScale(20),
+          }}>
+          Sending Data!
+        </Text>
       </View>
     );
   }

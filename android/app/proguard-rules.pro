@@ -6,5 +6,11 @@
 #
 # For more details, see
 #   http://developer.android.com/guide/developing/tools/proguard.html
+-keep class okhttp3.** { *; }
+-keep class com.squareup.okhttp.** { *; }
+-keepattributes Signature
+-keepattributes *Annotation*
+-dontwarn okhttp3.**
+-dontwarn com.squareup.okhttp.**
 
 # Add any project specific keep options here:
