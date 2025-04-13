@@ -1,6 +1,3 @@
-Here’s a suggested structure for a README file for the `TegassenAutobell` repository:
-
-```markdown
 # Tegassen Autobell
 
 A **Digital Bell System** designed specifically for Catholic churches. This system provides an automated and customizable solution for managing church bells, integrating modern technology with tradition.
@@ -98,6 +95,3 @@ For questions, suggestions, or feedback, feel free to contact the maintainer:
 ---
 
 Enjoy using **Tegassen Autobell** to bring tradition and technology together!
-```
-
-Feel free to modify this as needed based on specific features or additional details about your project.
